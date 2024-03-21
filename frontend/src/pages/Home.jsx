@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/books')
+      .get('http://localhost:3000/books')
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
@@ -28,23 +28,23 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='p-4'>
+    <div className='p-4 bg-gradient-to-r from-slate-300 to-slate-100 min-h-screen' >
       <div className='flex justify-center items-center gap-x-4'>
         <button
-          className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+          className='bg-white text-black hover:bg-black hover:text-white p-4 rounded-lg'
           onClick={() => setShowType('table')}
         >
-          Table
+          See Table
         </button>
         <button
-          className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
+          className='bg-black text-white hover:bg-white hover:text-black p-4  rounded-lg'
           onClick={() => setShowType('card')}
         >
-          Card
+         See Card
         </button>
       </div>
       <div className='flex justify-between items-center'>
-        <h1 className='text-3xl my-8'>Books List</h1>
+        <h1 className='text-3xl my-8 font-semibold bg-blue-700 text-white p-2 rounded-lg'>Novel Navigator</h1>
         <Link to='/books/create'>
           <MdOutlineAddBox className='text-sky-800 text-4xl' />
         </Link>
